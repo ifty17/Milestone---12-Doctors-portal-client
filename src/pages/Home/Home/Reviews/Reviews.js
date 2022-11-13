@@ -11,7 +11,7 @@ const Reviews = () => {
           <h2 className="text-4xl">What Our Patients Says</h2>
         </div>
         <div>
-          <img className="w-48" src={quote} alt="" />
+          <img className=" w-24 lg:w-48" src={quote} alt="" />
         </div>
       </div>
       <div className="mt-20 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-14">
@@ -22,13 +22,13 @@ const Reviews = () => {
               lot layout. The point of using Lorem a more-or-less normal
               distribu to using Content here, content
             </p>
-            <div className="flex items-center gap-3.">
+            <div className="flex items-center gap-3.5 mt-6">
               <div>
-                <img
-                  className="border-4 rounded-full border-primary p-0.5"
-                  src={image}
-                  alt=""
-                />
+                <div className="avatar">
+                  <div className="w-16 rounded-full ring ring-primary ring-offset-primary-100 ring-offset-2">
+                    <img src={image} alt="" />
+                  </div>
+                </div>
               </div>
               <div>
                 <h4 className="font-bold">Winson Herry</h4>
@@ -44,13 +44,13 @@ const Reviews = () => {
               lot layout. The point of using Lorem a more-or-less normal
               distribu to using Content here, content
             </p>
-            <div className="flex items-center gap-3.">
+            <div className="flex items-center gap-3.5 mt-6">
               <div>
-                <img
-                  className="border-4 rounded-full border-primary p-0.5"
-                  src={image}
-                  alt=""
-                />
+                <div className="avatar">
+                  <div className="w-16 rounded-full ring ring-primary ring-offset-primary-100 ring-offset-2">
+                    <img src={image} alt="" />
+                  </div>
+                </div>
               </div>
               <div>
                 <h4 className="font-bold">Winson Herry</h4>
@@ -66,13 +66,13 @@ const Reviews = () => {
               lot layout. The point of using Lorem a more-or-less normal
               distribu to using Content here, content
             </p>
-            <div className="flex items-center gap-3.">
+            <div className="flex items-center gap-3.5 mt-6">
               <div>
-                <img
-                  className="border-4 rounded-full border-primary p-0.5"
-                  src={image}
-                  alt=""
-                />
+                <div className="avatar">
+                  <div className="w-16 rounded-full ring ring-primary ring-offset-primary-100 ring-offset-2">
+                    <img src={image} alt="" />
+                  </div>
+                </div>
               </div>
               <div>
                 <h4 className="font-bold">Winson Herry</h4>
