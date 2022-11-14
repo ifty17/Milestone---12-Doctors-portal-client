@@ -2,31 +2,41 @@ import React from 'react';
 import { useForm } from 'react-hook-form';
 import { Link } from 'react-router-dom';
 
-const Login = () => {
+const SignUp = () => {
 
-    const { register, formState: { errors }, handleSubmit } = useForm();
-    const handleLogin = data =>{
+    const {register, handleSubmit,  formState: { errors }} = useForm();
+    const handleSignUp = (data) => {
         console.log(data);
     }
-    
+
     return (
       <div className="flex justify-center items-center h-[800px] ">
         <div className="w-96 p-7 shadow-xl rounded-xl">
-          <h2 className="text-xl text-center">Login</h2>
-          <form onSubmit={handleSubmit(handleLogin)}>
+          <h2 className="text-xl text-center">Sign Up</h2>
+          <form onSubmit={handleSubmit(handleSignUp)}>
             <div className="form-control w-full max-w-xs">
               <label className="label">
-                <span className="label-text">Email</span>{" "}
+                <span className="label-text">Name</span>
+              </label>
+              <input
+                type="text"
+                {...register("name")}
+                className="input input-bordered w-full max-w-xs"
+              />
+            </div>
+            <div className="form-control w-full max-w-xs">
+              <label className="label">
+                <span className="label-text">Email</span>
               </label>
               <input
                 type="email"
-                className="input input-bordered w-full max-w-xs"
                 {...register("email", {
-                  required: "Email Address is required",
+                  required: "Email is required",
                 })}
+                className="input input-bordered w-full max-w-xs"
               />
               {errors.email && (
-                <p className="text-red-600">{errors.email?.message}</p>
+                <span className="text-red-600">{errors.email?.message}</span>
               )}
             </div>
             <div className="form-control w-full max-w-xs">
@@ -35,28 +45,26 @@ const Login = () => {
               </label>
               <input
                 type="password"
-                className="input input-bordered w-full max-w-xs"
-                {...register("password", { 
-                    required: "Password is required" ,
-                    minLength: {value: 6, message:'Password must be 6 characters or longer'}
+                {...register("password", {
+                  required: "Password is required",
                 })}
+                className="input input-bordered w-full max-w-xs mb-2"
               />
-              <span className="label-text-alt">Forget password?</span>
               {errors.password && (
-                <p className="text-red-600">{errors.password?.message}</p>
+                <span className="text-red-600">{errors.password?.message}</span>
               )}
             </div>
             {/* <p>{data}</p> */}
             <input
               type="submit"
               className="btn btn-accent w-full"
-              value="Login"
+              value="Sign Up"
             />
           </form>
           <p>
-            New to doctors portal?{" "}
-            <Link to="/signup" className="text-secondary">
-              Create new account
+            Already have an account?{" "}
+            <Link to="/login" className="text-secondary">
+              Login now.
             </Link>
           </p>
           <div className="divider">OR</div>
@@ -68,4 +76,4 @@ const Login = () => {
     );
 };
 
-export default Login;
+export default SignUp;
