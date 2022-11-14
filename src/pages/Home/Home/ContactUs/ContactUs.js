@@ -25,10 +25,10 @@ const ContactUs = () => {
               placeholder="Type here"
               className="input w-[85%] lg:w-1/2 my-5"
             />
-            <input
+            <textarea
               type="text"
               placeholder="Type here"
-              className="input w-[85%] lg:w-1/2 h-24"
+              className="input w-[85%] lg:w-1/2 h-24 pt-3"
             />
           </div>
           <div className="flex justify-center mt-5">
