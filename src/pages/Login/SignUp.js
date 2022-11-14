@@ -20,7 +20,9 @@ const SignUp = () => {
               </label>
               <input
                 type="text"
-                {...register("name")}
+                {...register("name", {
+                  required: "Name is required",
+                })}
                 className="input input-bordered w-full max-w-xs"
               />
             </div>
@@ -47,6 +49,15 @@ const SignUp = () => {
                 type="password"
                 {...register("password", {
                   required: "Password is required",
+                  minLength: {
+                    value: 6,
+                    message: "Password must be 6 characters or longer",
+                  },
+                  pattern: {
+                    value: /(?=.*[A-Z])(?=.*[!@#$&*])(?=.*[0-9])/,
+                    message:
+                      "Password must have uppercase, number and special characters",
+                  },
                 })}
                 className="input input-bordered w-full max-w-xs mb-2"
               />
