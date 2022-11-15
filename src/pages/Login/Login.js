@@ -1,12 +1,30 @@
-import React from 'react';
+import React, { useContext, useState } from 'react';
 import { useForm } from 'react-hook-form';
-import { Link } from 'react-router-dom';
+import { Link, useLocation, useNavigate } from 'react-router-dom';
+import { AuthContext } from '../../Context/AuthProvider';
 
 const Login = () => {
-
+    const {logIn} = useContext(AuthContext)
     const { register, formState: { errors }, handleSubmit } = useForm();
+    const [loginError, setLoginError] = useState('');
+    const navigate = useNavigate();
+    const location = useLocation();
+    const form = location.state?.form?.pathname || '/'
+
+
     const handleLogin = data =>{
         console.log(data);
+        logIn(data.email, data.password)
+        .then(result =>{
+            const user = result.user;
+            setLoginError('');
+            console.log(user);
+            navigate(form, {replace: true});
+        })
+        .catch(error => {
+            console.error(error.message);
+            setLoginError(error.message);
+        });
     }
     
     return (
@@ -52,6 +70,9 @@ const Login = () => {
               className="btn btn-accent w-full"
               value="Login"
             />
+            <div>
+                {loginError && <p className='text-red-600'>{loginError}</p>}
+            </div>
           </form>
           <p>
             New to doctors portal?{" "}
